@@ -20,3 +20,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
+
+RUN mkdir /home/ugis/tmp
+WORKDIR /home/ugis/tmp
+COPY requirements.txt /home/ugis/tmp/
+RUN pip install -r requirements.txt \
+    && rm requirements.txt
