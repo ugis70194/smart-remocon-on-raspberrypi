@@ -1,4 +1,4 @@
-FROM rust:latest
+FROM python:3.9
 
 ARG USERNAME=ugis
 ARG USER_UID=1000
