@@ -1,0 +1,19 @@
+// .devcontainer/devcontainer.json
+
+{
+  "name": "Rust Development Environment",
+  "service": "rust",
+  "dockerComposeFile": "docker-compose.yml",
+  "remoteUser": "ugis",
+  "workspaceFolder": "/home/ugis/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer"
+      ],
+      "settings": {
+        "rust-analyzer.checkOnSave.enable": true
+      }
+    }
+  }
+}
