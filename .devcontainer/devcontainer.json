@@ -1,19 +1,21 @@
 // .devcontainer/devcontainer.json
 
 {
-  "name": "Rust Development Environment",
-  "service": "rust",
+  "name": "Python Development Environment",
+  "service": "python3",
   "dockerComposeFile": "docker-compose.yml",
   "remoteUser": "ugis",
   "workspaceFolder": "/home/ugis/app",
   "customizations": {
     "vscode": {
       "extensions": [
-        "rust-lang.rust-analyzer"
-      ],
-      "settings": {
-        "rust-analyzer.checkOnSave.enable": true
-      }
+		"ms-python.python",
+		"KevinRose.vsc-python-indent",
+		"oderwat.indent-rainbow",
+		"ms-python.isort",
+		"VisualStudioExptTeam.vscodeintellicode",
+		"VisualStudioExptTeam.intellicode-api-usage-examples"
+	]
     }
   }
 }
