@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  rust:
+  python3:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: rust
+    container_name: python3
     volumes:
       - ..:/home/ugis/app
     user: ugis
