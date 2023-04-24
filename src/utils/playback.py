@@ -12,7 +12,7 @@ load_dotenv()
 GPIO = int(getenv('PB_GPIO'))
 FILE = getenv('PB_FILE')
 FREQ = float(getenv('PB_FREQ'))
-GAP_S = int(getenv('PB_GAP_S'))
+GAP_S = float(getenv('PB_GAP_S'))
 
 pi = pigpio.pi() # Connect to Pi.
 
