@@ -2,3 +2,5 @@ __*__
 .env
 *.json
 *mock*
+*.sh
+*.service
