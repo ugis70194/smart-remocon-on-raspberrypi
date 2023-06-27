@@ -124,15 +124,15 @@ def encode(mode, T):
 
     # ファイルがない場合 空のjsonファイルを作成
     if not os.path.isfile("aircon"): 
-        with open("aircon", "w") as s:
+        with open("codes.json", "w") as s:
             s.write("{}")
     # ファイルが空の場合 空のjsonファイルを作成
-    with open("aircon", "r") as s:
+    with open("codes.json", "r") as s:
         if len(s.read()) == 0:
             s.write("{}")
     # -s で指定されたファイルに書き込み
-    with open("aircon", "r") as s:
+    with open("codes.json", "r") as s:
         Recode = json.load(s)
-    with open("aircon", "w") as s:
+    with open("codes.json", "w") as s:
         Recode["aircon:op"] = signal
         s.write(json.dumps(Recode))
