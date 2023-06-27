@@ -1,5 +1,10 @@
 import os 
 import json
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
+FILE = getenv('PB_FILE')
 
 base = "4a75c358a76f907f80ff00b748ef10fd02de21"
 modeNum = {"off": 18, "auto" : 25, "cool" : 26, "day" : 27, "clean" : 28, "warm" : 29}
@@ -91,7 +96,7 @@ def encode(mode, T):
     ----------
     mode : string
         エアコンの運転モード
-    T : int
+    T : string
         エアコンの設定温度
 
     Returns
@@ -104,6 +109,7 @@ def encode(mode, T):
     """
     global pulse
 
+    T = int(T)
     hexcode = gen_code(mode, T)
     signal = [3200, 1600]
 
@@ -123,16 +129,16 @@ def encode(mode, T):
     #print(signal)
 
     # ファイルがない場合 空のjsonファイルを作成
-    if not os.path.isfile("aircon"): 
-        with open("codes.json", "w") as s:
+    if not os.path.isfile(FILE): 
+        with open(FILE, "w") as s:
             s.write("{}")
     # ファイルが空の場合 空のjsonファイルを作成
-    with open("codes.json", "r") as s:
+    with open(FILE, "r") as s:
         if len(s.read()) == 0:
             s.write("{}")
     # -s で指定されたファイルに書き込み
-    with open("codes.json", "r") as s:
+    with open(FILE, "r") as s:
         Recode = json.load(s)
-    with open("codes.json", "w") as s:
+    with open(FILE, "w") as s:
         Recode["aircon:op"] = signal
         s.write(json.dumps(Recode))
